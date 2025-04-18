@@ -1,0 +1,20 @@
+- hosts: all
+  become: yes
+  vars: 
+    hello: file
+  tasks:
+
+  - name: Add the user tim
+    ansible.builtin.user:
+      name: tim
+    when: hello == "kaizen"
+
+  - name: Add the user ann
+    ansible.builtin.user:
+      name: ann
+    when: hello == "world"
+
+  - name: Add the user eric
+    ansible.builtin.user:
+      name: eric
+    when: hello == "file"

@@ -1,0 +1,9 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install apache 
+    ansible.builtin.apt:
+      name: tree 
+    register: kaizen
+  - name: Debug
+    debug: msg="{{ kaizen }}"

@@ -1,0 +1,20 @@
+- hosts: all
+  become: yes
+  vars:
+    package: 
+      - apache2
+      - tree
+      - unzip 
+    service: apache2
+  tasks:
+  - name: Install apache 
+    ansible.builtin.apt:
+      name: "{{ package }}"
+      state: present
+      update_cache: yes
+
+  - name: Start service apache
+    ansible.builtin.service:
+      name:  "{{ service }}"
+      state: started
+      enabled: yes

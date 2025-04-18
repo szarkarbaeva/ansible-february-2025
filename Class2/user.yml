@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Add the user 
+    ansible.builtin.user:
+      name: "{{ item }}"
+    loop:
+      - kaizen
+      - hello
+      - world
